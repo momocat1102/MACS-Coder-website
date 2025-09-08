@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css"> -->
+
+    <title>MACS-Coder</title>
+    <style>
+        body {
+            font-family: 'Poppins';
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            text-align:justify;
+        }
+
+        .container {
+            max-width: 59rem;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .link-block {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .external-link {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 0.1rem;
+            transition: background-color 0.3s;
+            border-radius: 0.3rem;
+
+            display: flex;
+            flex-direction: row;
+            gap: 0.2rem;
+        }
+
+        .icon {
+            margin-top: 0.2rem;
+        }
+
+        .gray-border {
+            border: 0.1rem solid gray;
+            border-collapse: collapse;
+        }
+
+        .black-border {
+            border: 0.5rem solid black;
+            border-collapse: collapse;
+        }
+
+        .bg-gray {
+            background-color: gainsboro;
+        }
+
+        .center-align {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .dark-font {
+            color: black;
+            font-weight: bolder;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center; margin-top: 3rem;">MACS-Coder</h1>
+        <h2 style="text-align: center; margin-top: -1.5rem; font-weight: 500">A Multi-Agent Coding Framework for Small LMs — From Fast Thinking to Deep Planning</h2>
+
+        <!-- <h4 style="text-align: center; margin-top: -1rem; font-weight: 500">
+            <a href="https://md-ashraful-pramanik.github.io/">Md. Ashraful Islam</a>
+            <sup style="color: green">*1</sup>,
+            <a href="https://sites.google.com/site/mohammedeunusali/">Mohammed Eunus Ali</a>
+            <sup style="color: green">1</sup>,
+            <a href="https://rizwan09.github.io/">Md Rizwan Parvez</a>
+            <sup style="color: orangered">2</sup>
+        </h4> -->
+
+        <!-- <p style="text-align: center; margin-top: -1rem; font-weight: 500; font-size: medium;">
+            <sup style="color: green">1</sup>
+            Bangladesh University of Engineering and Technology (BUET)
+        </p>
+        <p style="text-align: center; margin-top: -1.2rem; font-weight: 500; font-size: medium;">
+            <sup style="color: orangered">2</sup>
+            Qatar Computing Research Institute (QCRI)
+        </p>
+        <p style="text-align: center; margin-top: -1.2rem; font-weight: 500; font-size: medium;">
+            <sup style="color: green">*</sup>
+            Work done when working as a remote RA at QCRI.
+        </p> -->
+
+        <div style="margin-top: 1rem;"></div>
+
+        <span class="link-block">
+            <!-- <a href="https://arxiv.org/abs/2502.05664" class="external-link" style="background-color:gray">
+                <span class="material-symbols-outlined icon">picture_as_pdf</span>
+                <span>arXiv</span>
+            </a>
+
+            <a href="https://github.com/kagnlp/CodeGenerator" class="external-link" style="background-color:gray">
+                <span class="material-symbols-outlined icon">code</span>
+                <span>code</span>
+            </a> -->
+            <a href="#results" class="external-link" style="background-color:gray">
+                <span class="material-symbols-outlined icon">trophy</span>
+                <span>results</span>
+            </a>
+        </span>
+
+        <div style="align-items: center; text-align: center;">
+
+            <img src="images/workflow.png" alt="Overview" style="width: 100%; margin-top: 2rem;">
+            <p> 
+                Overview of MACS-Coder: It consists of Fast and Deep Thinking systems. The <i>Fast Thinking</i> system handles simple problems directly, while the <i>Deep Thinking</i> system employs specialized agents—STD IO Tool, Planning, Coding, and Debugging—for complex challenges. The framework dynamically adapts its strategy based on problem complexity.
+            </p>
+        </div>
+        <h2 style="text-align: center;">Introduction</h2>
+        <p>
+            Large Language Models (LLMs) have made significant strides in code generation, yet solving complex programming tasks remains challenging. Current state-of-the-art multi-agent frameworks often use resource-intensive, <b>one-size-fits-all</b> strategies. We introduce <b>MACS-Coder</b> (Multi-Agent Adaptive Coding Structure), a dual-process framework inspired by human cognition that dynamically adapts its problem-solving strategy. It uses a fast subsystem for simpler tasks and a deep subsystem with specialized planning, coding, and debugging agents for complex challenges.
+        </p>
+        <p>
+            MACS-Coder achieves new SOTA results with remarkable efficiency. Using <b>gpt-oss-20B</b>, it attains <b>99.4%</b> on HumanEval, <b>93.2%</b> on MBPP, and <b>83.2%</b> on LiveCodeBench V5, consistently outperforming CodeSIM and MapCoder in both accuracy and computational efficiency. The primary contribution is bridging the performance gap between compact open-source models and elite closed-source systems—demonstrating that an open-source <b>gpt-oss-20B</b> model with MACS-Coder can achieve performance comparable to top-tier models like GPT-4 and Gemini-2.5 Pro.
+        </p>
+
+        <h2 style="text-align: center;">MACS-Coder Overview</h2>
+<p>
+    MACS-Coder introduces an efficient dual-stage <b>"Fast and Deep Thinking"</b> framework inspired by human cognitive systems. The Fast-Thinking stage quickly handles simple problems with minimal resources, while the Deep-Thinking stage provides comprehensive reasoning for complex challenges through specialized agents: Planning, Coding, Debugging, and STD IO handling.
+</p>
+
+<h3>Fast Thinking System</h3>
+<p>
+    Designed for simple problems, this stage generates solutions directly without extensive computation. It first attempts direct code generation and only transitions to Deep Thinking if initial tests fail, conserving resources for truly challenging problems.
+</p>
+
+<h3>Deep Thinking System</h3>
+<p>
+    For complex problems, this stage employs four specialized agents working in sequence:
+</p>
+<ul>
+    <li><b>STD IO Tool:</b> Creates structured input/output templates for competitive programming problems, improving code readability and correctness.</li>
+    <li><b>Planning Agent:</b> Generates comprehensive algorithmic plans, evaluates multiple solutions, and selects the most stable approach.</li>
+    <li><b>Coding Agent:</b> Implements the plan with detailed comments, ensuring adherence to the strategy outlined in the planning phase.</li>
+    <li><b>Debugging Agent:</b> Handles three types of errors through specialized blocks: STD IO errors (input/output formatting), Runtime errors (execution failures), and Wrong Answer errors (logic corrections).</li>
+</ul>
+
+        <br>
+        <br>
+        <h2 style="text-align: center;" id="results">Results</h2>
+
+        <h3 style="display: flex;"><span class="material-symbols-outlined icon">double_arrow</span>Competitive Problem Solving</h3>
+        <div style="align-items: center; text-align: center;">
+            <img src="images/contest-level-problems.png" alt="contest Results" style="width: 100%; margin-top: 0.5rem;">
+            <p> Performance comparison on the HumanEval and MBPP benchmarks using open-source models (gpt-oss-20B, Qwen3-14B, and Qwen3-8B). The evaluation metrics include: ACC (Pass@1 Accuracy), Time (average seconds per problem), Tokens (average generated response tokens per problem), and ET ACC (a more stringent evaluation with additional private test cases). The results show that MACS-Coder not only achieves the highest accuracy but also demonstrates superior efficiency by consuming fewer Tokens than other high-performing methods like CodeSIM and MapCoder. </p>
+        </div>
+        <p>
+            MACS-Coder redefines competitive-level code generation with both accuracy and efficiency. Powered by its dual “Fast and Deep Thinking” framework, it achieves 83.2% accuracy on gpt-oss-20B—setting a new SOTA and surpassing CodeSIM (80.4%) and MapCoder (77.8%). At the same time, it saves 18% in token usage on hard problems, showing that higher accuracy doesn’t need higher cost. Remarkably, MACS-Coder also empowers smaller models: Qwen3-8B with MACS-Coder reaches 63.1%, even outperforming the larger Qwen3-14B with MapCoder (62.2%). These results highlight MACS-Coder’s ability to make problem-solving not only smarter, but also more resource-efficient.
+        </p>
+
+        <h3 style="display: flex;"><span class="material-symbols-outlined icon">double_arrow</span>Basic Code Generation</h3>
+        <div style="align-items: center; text-align: center;">
+            <img src="images/basic-programming-problems.png" alt="Contest Results" style="width: 100%; margin-top: 0.5rem;">         
+            <p> Performance comparison on the HumanEval and MBPP benchmarks using open-source models (gpt-oss-20B, Qwen3-14B, and Qwen3-8B). The evaluation metrics include: ACC (Pass@1 Accuracy), Time (average seconds per problem), Tokens (average generated response tokens per problem), and ET ACC (a more stringent evaluation with additional private test cases). The results show that MACS-Coder not only achieves the highest accuracy but also demonstrates superior efficiency by consuming fewer Tokens than other high-performing methods like CodeSIM and MapCoder. </p>
+        </div>
+        <p>
+            In basic code generation tasks, MACS-Coder excels by delivering SOTA-level accuracy with fewer resources. On HumanEval, Qwen3-8B with MACS-Coder achieves 89.0% accuracy while cutting both time (26.8s) and token usage (1,711) compared to CodeSIM.
+
+Even more impressively, this efficiency lets smaller models punch above their weight: Qwen3-8B + MACS-Coder matches the performance of the larger Qwen3-14B using CoT (89.0%). This demonstrates how MACS-Coder brings top-tier results with practical, resource-friendly models—making advanced code generation more accessible and cost-effective.
+        </p>
+
+        <h3 style="display: flex;"><span class="material-symbols-outlined icon">double_arrow</span>Comparison with State-of-the-Art Models</h3>
+        <div style="align-items: center; text-align: center;">
+            <img src="images/leaderboard.png" alt="Contest Results" style="width: 50%; margin-top: 0.5rem;">         
+            <p> Effectiveness of MACS-Coder on LiveCodeBench V5. Compared to their base versions, models enhanced with our method show substantial improvements in Pass@1 scores: <b>gpt-oss-120b (+6.0), gpt-oss-20b (+15.9), Qwen3 14B (+25.1), and Qwen3 8B (+22.7).</b> This demonstrates the significant performance gains provided by MACS-Coder. </p>
+        </div>
+        <p>
+            On the LiveCodeBench benchmark, MACS-Coder proves its absolute competitiveness by elevating open-source models to match top proprietary systems. With gpt-oss-20B, MACS-Coder achieves 83.2% Pass@1, surpassing Grok-3-Mini (81.4%) and O3-Mini (80.5%), and coming close to Gemini-2.5 Pro (84.7%).
+
+Crucially, MACS-Coder also empowers smaller models: Qwen3-14B + MACS-Coder (68.6%) outperforms the unenhanced gpt-oss-20B (67.3%) and rivals O1-Mini (68.4%). Even Qwen3-8B + MACS-Coder (63.1%) beats much larger models like DeepSeek V3 (56.3%) and Claude-3.5-Sonnet (51.5%).
+
+These results highlight MACS-Coder as a powerful enhancer that makes SOTA-level performance more accessible, enabling open-source models to tackle challenges once reserved for top proprietary systems.
+        </p>
+
+        <h3 style="display: flex;"><span class="material-symbols-outlined icon">double_arrow</span>Performance-Cost Analysis</h3>
+        <div style="align-items: center; text-align: center;">
+            <img src="images/token_cost.png" alt="Contest Results" style="width: 80%; margin-top: 0.5rem;">         
+            <p> Performance comparison between MACS-Coder (solid lines) and CodeSIM (dashed lines) across multiple planning iterations. MACS-Coder maintains a substantial performance advantage over CodeSIM regardless of the iteration count, demonstrating its superior effectiveness. While both methods benefit from more iterations, MACS-Coder consistently operates at a higher performance level. </p>
+        </div>
+        <p>
+            To highlight its efficiency, we compared MACS-Coder with CodeSIM on accuracy vs. token usage. Across all benchmarks, the results are clear: MACS-Coder delivers higher accuracy with fewer tokens.
+
+On LiveCodeBench, Qwen3-8B + MACS-Coder improves accuracy by <b>+8.7%</b> while saving <b>10k+ tokens</b>, and even gpt-oss-20B sees gains of <b>+2.8% accuracy with 4,400 fewer tokens</b>. The improvement consistently moves performance toward the <b>top-left (more accurate, more efficient)</b> in every case.
+
+This advantage comes from MACS-Coder’s Fast and Deep Thinking framework, which avoids wasting computation on simple problems and focuses resources on harder ones—making it not just more accurate, but also far more efficient for real-world use.
+        </p>
+
+        <h2 style="text-align: center;" >Cite Us</h2>
+        <pre>
+@misc{islam2025codesim,
+    title={CODESIM: Multi-Agent Code Generation and Problem Solving through 
+        Simulation-Driven Planning and Debugging}, 
+    author={Md. Ashraful Islam and Mohammed Eunus Ali and Md Rizwan Parvez},
+    year={2025},
+    eprint={2502.05664},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL},
+    url={https://arxiv.org/abs/2502.05664}, 
+}
+        </pre>
+
+    </div>
+</body>
+
+</html>
